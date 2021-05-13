@@ -9,7 +9,7 @@ bash download.sh
 ```
 
 ## Prepare your environment
-- you need to install `numpy` and `tqdm` in your pytho environment
+- you need to install `numpy` and `tqdm` in your python environment
 
 ## Run
 - just run the main.py

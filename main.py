@@ -23,12 +23,12 @@ from tqdm import tqdm
 
 model = models.Model([
     layer.Dense(784,128, activation.Relu()),
-    layer.Dense(128,50, activation.Relu()),
-    layer.Dense(50,10, None)
+    # layer.Dense(128,50, activation.Relu()),
+    layer.Dense(128,10, None)
 ], 10, cls_activation=activation.Softmax())
 
 EPOCHS=100
-batch_size=20
+batch_size=50
 for epoch in range(EPOCHS):
     t_num=len(train_label)
     tqdm_bar=tqdm(range(int(t_num/batch_size)))

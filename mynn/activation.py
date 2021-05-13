@@ -18,12 +18,16 @@ class Relu(Activation):
         pass
     
     def forward(self, x):
+        # return np.maximum(0,x)
+        a = np.maximum(0,x)
+        b=x*(x>0)
+        return x*(x>0)
         return 1/(1+np.exp(-x))
     
     def backward(self, dA, x):
         dX = np.array(dA, copy=True)
         dX[x<=0] = 0
-        return dA * dX
+        return  dX
 
 class Sigmoid(Activation):
     def __init__(self):
@@ -49,17 +53,4 @@ class Softmax(Activation):
     
     def backward(self,y_pre,y_true):
 
-        # dt = np.zeros((x.shape))
-        # a = self.forward(x)
-        # for i in range(a.shape[0]):
-        #    dt[i] = a[i] - np.sum(a[i] * a, axis=0, keepdims=True)
-
-        # dt=np.array([10,10],dtype=np.float64)
-        # for i in range(10):
-        #     for j in range(10):
-        #         if i==j:
-        #             dt[i][j]=
-
-        # sig = self.forward(x)
-        # return dA * sig * (1-sig)
         return y_pre - y_true

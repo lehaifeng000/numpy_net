@@ -20,7 +20,7 @@ class Dense:
         return out
 
     def backward(self, dA):
-        m = self.x.shape[1]
+        m = self.x.shape[0]
         if self.activation:
             dt = self.activation.backward(dA, self.t)
         else:
